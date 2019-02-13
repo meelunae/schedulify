@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" /> 
+<title> Schedulify - To-Do List </title>
+<link rel="icon" href="assets/favicon.ico">
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+<div id="site">
+    <div id="content">
+  <h1 class="title">Schedulify</h1>
+  <p class="sub-title"> 
+      <span>(Your web-based to do list!)</span>
+    </p>
+</div>
+
+<div id="main-container">
+        <div id="navbar">    
+        <input class= "input" type="text" id="InputBox" placeholder="Insert your to-do text!">
+        <button class="btn" onclick=newElement(); type="button"><span>Add</span></button>
+        <button class="btn-clr" onclick=Clear(); type="button"><span>Clear</span></button> 
+        </div>
+
+<div id="page">
+<ul id="listOfElements">
+</ul>
+</div>
+</div>
+
+
+<p class="notice" onclick="mute();">
+Mute music
+</p>
+
+<p class="notice">
+<br>
+
+Made with &#9829; by Eleuname
+</p>
+
+<audio id="acmusic" src="assets/music.mp3" loop="loop" preload="auto"></audio>
+<script>
+var audio = document.getElementById("acmusic");
+window.onload = function() {
+    audio.play();
+    audio.volume = 0.1;
+    var load = localStorage.getItem("todos");
+    if(load)
+    {
+      document.getElementById("listOfElements").innerHTML = load;
+    }
+}
+window.onbeforeunload = function() {
+  var todosList = document.getElementById("listOfElements").innerHTML;
+  localStorage.setItem("todos", todosList);
+}
+function mute(){
+audio.pause();
+audio.currentTime = 0;
+}
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+function Clear() {
+    document.getElementById("listOfElements").innerHTML = "";
+}
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("InputBox").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("listOfElements").appendChild(li);
+  }
+  document.getElementById("InputBox").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
+	
