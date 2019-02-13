@@ -1,6 +1,7 @@
 # schedulify
 Schedulify - JS+HTML5 web based to-do list
 
+Demo available at https://nyaaa.me/schedulify/
 
 HTML+CSS done by me (edited by my main website's actually, because I suck at CSS)
 
