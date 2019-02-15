@@ -1,12 +1,7 @@
-# schedulify
-Schedulify - JS+HTML5 web based to-do list
+#Schedulify
 
-Demo available at https://nyaaa.me/schedulify/
+Web to-do list coded in JS+HTML5!
 
-HTML+CSS done by me (edited by my main website's actually, because I suck at CSS)
+CSS done by me and edited by @robek2020, who also provided good fixes to the website's logic and the project would be a buggy mess without his help.
 
-JS code based on w3school's JS to-do list exercise
-
-Took 3-4 hours for the entire project and I suck at web dev, so expect it to be really buggy and stuff.
-Desktop site is working perfectly, while mobile is a non-working mess.
-To-dos stay upon closing page and reopening :-)
+Demo should be available at http://nyaaa.me/schedulify
