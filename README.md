@@ -1,4 +1,4 @@
-#Schedulify
+# Schedulify
 
 Web to-do list coded in JS+HTML5!
 
