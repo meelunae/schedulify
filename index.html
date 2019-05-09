@@ -57,6 +57,12 @@
 
             let todos = [];
 
+            var sanitizeHTML = function (str) {
+	        var temp = document.createElement('div');
+	        temp.textContent = str;
+	        return temp.innerHTML;
+            };
+
             window.onload = function () {
                 let storedTodos = localStorage.getItem("todos");
                 if (storedTodos) {
@@ -132,7 +138,7 @@
             // Create a new list item when clicking on the "Add" button
             function newElement() {
 
-                let inputValue = document.getElementById("InputBox").value;
+                let inputValue = sanitizeHTML(document.getElementById("InputBox").value);
                 if (inputValue === '') {
                     alert("You must write something!");
                     return;
