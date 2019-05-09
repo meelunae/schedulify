@@ -22,7 +22,7 @@
                     <input class="input" type="text" id="InputBox" placeholder="Insert your to-do text!">
                     <div class="button-container">
                         <button class="btn" onclick="newElement();" type="button">Add</button>
-                        <button class="btn-clr" onclick="clear();" type="button">Clear</button>
+                        <button class="btn-clr" onclick="cleanList();" type="button">Clear</button>
                     </div>
                 </div>
 
@@ -131,8 +131,9 @@
                 }
             }, false);
 
-            function clear() {
+            function cleanList() {
                 document.getElementById("listOfElements").innerHTML = "";
+                todos = [];
             }
 
             // Create a new list item when clicking on the "Add" button
